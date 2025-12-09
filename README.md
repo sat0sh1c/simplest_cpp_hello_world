@@ -16,7 +16,5 @@ CPU on x86_64
 CMake >= 3.13
 ## Build
 ```bash
-```bash
 mkdir build && cd build && cmake .. && cmake --build . --parallel
-```
 ```
