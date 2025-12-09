@@ -1,0 +1,38 @@
+Language: Cpp
+ColumnLimit: 80
+UseTab: Never
+AccessModifierOffset: 1
+AllowAllArgumentsOnNextLine: true
+AlignAfterOpenBracket: true
+AlignArrayOfStructures: Right
+AlignConsecutiveAssignments:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+AlignConsecutiveMacros:
+  Enabled: true
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterStruct: true
+  BeforeCatch: true
+  BeforeElse: true
+  BeforeLambdaBody: true
+  AfterCaseLabel: true
+  AfterExternBlock: true
+  AfterUnion: true
+  AfterControlStatement: Always
+IndentWidth: 2
+IndentAccessModifiers: true
+NamespaceIndentation: All
+PointerAlignment: Left
+PackConstructorInitializers: Never
+SpaceBeforeParens: ControlStatements

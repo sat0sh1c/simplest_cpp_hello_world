@@ -1,57 +1,62 @@
 #pragma once
-#include "includes.hpp"
+#include <bitset>
+#include <cstdint>
+#include <string>
 
 class base
 {
-public:
-    base(std::string&& str, int index);
-    virtual void print();
-private:
+  public:
+    base(const std::string&& str, std::uint16_t index);
+    virtual void basic() const;
+
+  private:
     char symbol;
 };
 
-template<int index>
-class derived : base
+template <int index> class derived : base
 {
-public:
-    derived() : base{ "0", NULL }
+  public:
+    derived()
+        : base{"0", 0}
     {
-        if (index > 255)
-        {
-            exit(0x16);
-        }
+      if (index > 255)
+      {
+        exit(0x16);
+      }
     };
-    void print()
+    virtual void basic() const override
     {
-        char c{ index };
-        printf("%c", c);
+      char c{index};
+      printf("%c", c);
     };
 };
 
-class diff_base_printer
+class num_base
 {
-public:
-    diff_base_printer(std::bitset<8>&& bin_symbols); 
-    void print_from_hex(std::string&& hex_val);
-private:
+  public:
+    constexpr static std::uint32_t BYTE_SIZE = 8;
+    num_base(std::bitset<8>&& bin_symbols);
+    void hex(std::string&& hex_val);
+
+  private:
     char hex_code[2];
 };
 
-class o_print
+class io_stuff
 {
-public:
-    o_print(unsigned char symbol);
-private:
+  public:
+    io_stuff(unsigned char symbol);
+
+  private:
     unsigned char smb;
 };
 
-class asm_printer
+class asm_block
 {
-public:
+  public:
+    asm_block(std::uint8_t octal_value);
 
-    asm_printer(int octal_value);
-
-private:
-    int to_dec(int oct_val);
-    int get_degree(int num, int _degree);
+  private:
+    std::uint16_t to_dec(std::uint8_t oct_val);
+    std::uint16_t get_degree(std::uint16_t num, std::uint16_t _degree);
 };
